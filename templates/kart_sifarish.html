@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% from "formhelpers.html"  import render_field %}
+
+
+<div class="bg-light">
+    <div class="container">
+        <h1>Oz kartini onlayn sifaris et</h1>
+        <form  method="POST">
+            {{ form.csrf_token }}
+
+            <div class="content bg-white my-4 px-3 py-5  ">
+                <div class="row">
+                    <div class="col-5"><b>{{form.kartin_nov.label}}</b>
+                    {{form.kartin_nov(class="form-control rounded-5 me-3",)}}</div>
+                    
+                    
+                    <div class="col-5"><b>{{form.valyuta.label}}</b>
+                    {{form.valyuta(class="form-control rounded-5 me-3",)}}</div>
+                 
+                    <div class="col-2"></div>
+                </div>
+
+                
+                
+
+
+
+            </div>
+
+            <div class="content bg-white py-5 px-3 " data-step="1">
+                <div class="row">
+
+                        <div class="col-md-4 ">
+                            <label class="ms-2">{{form.ad.label}}</label>
+                            <br>
+                            {{form.ad(class="form-control rounded-5")}}
+                         
+                            
+                        <!--inputGroup end-->
+                        </div>
+
+                        <div class="col-md-4 ">
+                            <label class="ms-2">{{form.soyad.label}}</label>
+                            <br>
+                            {{form.soyad(class="form-control rounded-5")}}
+                        
+                        <!--inputGroup end-->
+                        </div>
+
+                        <div class="col-md-4 ">
+                            <label class="ms-2">{{form.ata_adi.label}}</label>
+                            <br>
+                            {{form.ata_adi(class="form-control rounded-5")}}
+                           
+                        <!--inputGroup end-->
+                        </div>
+
+                        
+                        <div class="col-md-4 ">
+                            <label class="ms-2">{{form.dogum_tarix.label}}</label>
+                            <br>
+                            {{form.dogum_tarix(class="form-control rounded-5")}}
+                      
+                            
+                        </div>
+
+                        <div class="col-md-4 ">
+                            <label class="ms-2">{{form.mobile.label}}</label>
+                            <br>
+                            {{form.mobile(class="form-control rounded-5",placeholder="+994")}}
+                 
+                        </div> 
+                        
+                        <div class="col-md-4 ">
+                            <label class="ms-2">{{form.unvan.label}}</label>
+                            <br>
+                            {{form.unvan(class="form-control rounded-5",placeholder="City. Reg. Street. Home.  ")}}
+                    
+                            
+                        </div>
+
+                        <div class="col-md-4 ">
+                            <label class="ms-2">{{form.mail.label}}</label>
+                            <br>
+                            {{form.mail(class = "form-control rounded-5", placeholder = "...@example.com")}}
+                            {% if form.mail.errors %}
+                            <ul>
+                                {% for error in form.mail.errors %}
+                                <li>{{error}}</li>
+                                {% endfor %}
+                            </ul>
+                            {% endif %}
+                            
+                        </div>
+
+                        
+
+        
+                </div><!-- row end-->
+                <button type="submit" class="btn btn-primary rounded-5 my-3 d-flex ali">Siparish et</button>
+            </div>
+        </form>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+{% endblock %}

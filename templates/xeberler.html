@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="bg-light">
+    <div class="container">
+        <div class="col">
+            <h3>Xəbərlər</h3>
+            {% for data in datas %}
+
+
+            <div class="card mb-4" style="max-width:100%;">
+                <div class="row g-0">
+                  <div class="col-md-3 p-3  ">
+                    <img src="{{data.image_url}}" class="img-fluid  rounded-3" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <a class="text-decoration-none text-dark" href="/xeber/{{data.title.replace(' ','-')}}/"><h5 class="card-title my-2">{{data.title}}</h5></a>
+                      <b>{{data.vaxt_aralig|safe}}</b>
+                      {{data.desc|safe}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+    </div>
+</div>
+
+
+
+
+{% endblock %}

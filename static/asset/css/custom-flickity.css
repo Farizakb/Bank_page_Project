@@ -1,0 +1,132 @@
+.carousel-slider {
+    background: #FAFAFA;
+    width     : 250px;
+    border: none;
+    box-shadow: 3px 3px 40px rgba(0, 0, 0, 0.125);
+    border-radius: 5px;
+}
+
+.carousel-slider .card {
+    border: none;
+}
+
+.flickity-prev-next-button.previous,
+.flickity-prev-next-button.next {
+    bottom: 0;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    position: absolute;
+    left: unset;
+    top: unset;
+}
+
+.flickity-prev-next-button.previous {
+    right: 30px;
+}
+
+.flickity-prev-next-button.next {
+    right: 10px;
+}
+
+.carousel-slider:hover .card {
+    background-color: #475ed0;
+    color: white;
+}
+
+.carousel-slider:hover button svg {
+    color: #fafafa;
+}
+
+.flickity-prev-next-button.previous svg,
+.flickity-prev-next-button.next svg {
+    width: 15px;
+    height: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.carousel-slider .carousel-cell {
+    width        : 250px;
+    height       : 200px;
+    border-radius: 5px;
+}
+
+/* cell number */
+.carousel-slider .carousel-cell:before {
+    display    : block;
+    text-align : center;
+    line-height: 200px;
+    font-size  : 80px;
+    color      : white;
+}
+
+.sliders {
+    margin-top: 40px;
+    color: #fafafa;
+}
+
+.sliders .carousel-slider {
+    position: relative;
+    width: 80%;
+    height: 83%;
+}
+
+.sliders .carousel-slider .carousel-cell {
+    width: 100%;
+    height: 100%!important;
+    padding: 20px!important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sliders .carousel-slider .carousel-cell .top {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.sliders .carousel-slider .carousel-cell .top a {
+    width: max-content;
+    text-decoration: none;
+    color: #fafafa;
+}
+
+.sliders .carousel-slider .carousel-cell .middle {
+    margin-top: 30px;
+}
+
+.sliders .carousel-slider .carousel-cell .middle h3 {
+    font-weight: 300;
+    font-size: 28px;
+}
+
+.sliders .carousel-slider .carousel-cell .middle p {
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.sliders .carousel-slider .carousel-cell .bottom a {
+    text-decoration: none;
+    border-radius: 30px;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #fafafa;
+    background: #475ed0;
+}
+
+.sliders .carousel-slider:hover .carousel-cell .bottom a {
+    background: #fafafa;
+    color: #475ed0;
+}
+
+.carousel-slider:hover .card {
+    width: 100%;
+    height: 100%;
+    color: #fafafa;
+}
+
+.sliders .carousel-slider button svg {
+    color: #fafafa;
+}

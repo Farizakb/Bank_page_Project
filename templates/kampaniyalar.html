@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="bg-light">
+    <div class="container">
+        <div class="col">
+            <h3>Kampaniyalar</h3>
+            {% for data in datas %}
+
+
+            <div class="card mb-4" style="max-width:100%;">
+                <div class="row g-0">
+                  <div class="col-md-3 p-3  ">
+                    <img src="{{data.image_url}}" class="img-fluid  rounded-3" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <a class="text-decoration-none text-dark" href="/kampaniya/{{data.title.replace(' ','-')}}/"><h5 class="card-title my-2">{{data.title}}</h5></a>
+                      <b>{{data.vaxt_aralig|safe}}</b>
+                      <p>{{data.desc|safe}}</p>
+                      <p><small class="text-muted">{{data.create_at|safe}}</small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+
+              <!-- <div class="card mb-4" style="max-width:100%;">
+                <div class="row g-0">
+                  <div class="col-md-3 p-3  ">
+                    <img src="https://www.bankrespublika.az/uploads/lombard%20endirim%20post.jpg" class="img-fluid  rounded-3" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title my-2">Lombard krediti üzrə ENDİRİM kampaniyası</h5>
+                      <p class="card-text"><strong> Kampaniya  <span style="color: blue;">22/08/2022</span> -ci il tarixindən  <span  style="color: blue;">  30/09/2022</span> -ci il tarixinədək aktivdir.</strong></p>
+                      <p class="card-text">Kampaniya çərçivəsində müştərilər daha az çəkili qızılı girov qoyub, daha böyük məbləğdə krediti SƏRFƏLİ ŞƏRTLƏRLƏ əldə edə biləcək!</p>
+                      <p><small class="text-muted">5 days ago</small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="card mb-4" style="max-width:100%;">
+                <div class="row g-0">
+                  <div class="col-md-3 p-3  ">
+                    <img src="	https://www.bankrespublika.az/uploads/Maksimal%20endirim_30_fb.jpg" class="img-fluid  rounded-3" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title my-2">Bank Respublika 30 yaşı münasibətilə mikro kredit faizlərində 30% endirim elan edib!</h5>
+                      <p class="card-text"><strong>Kampaniya  <span style="color: blue;">06/05/2022</span> -ci il tarixindən  <span  style="color: blue;">   01/08/2022</span> -ci il tarixinədək aktivdir.</strong></p>
+                      <p class="card-text">Kampaniya çərçivəsində müştərilər daha az çəkili qızılı girov qoyub, daha böyük məbləğdə krediti SƏRFƏLİ ŞƏRTLƏRLƏ əldə edə biləcək!</p>
+                      <p><small class="text-muted">06 May. 09:36</small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+              
+
+
+ -->
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+    </div>
+</div>
+
+
+
+
+{% endblock %}

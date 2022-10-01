@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="{{url_for('static', filename ='asset/css/base.css')}}">
+  
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <title>Bank Respublika</title>
+    <link rel="shortcut icon" type="image/png" href="../static/assets/favicon.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/asset/css/style.css') }}">
+    {% block css%}
+    {% endblock %}
+    <style>
+      #product_list h6 {
+          color: rgb(23, 31, 248);
+      }
+      .secondTitle span {
+          color: rgb(23, 31, 248);
+      }
+      .your-class a{
+        text-decoration: none;
+        color:black ;
+      }
+      .container td h2,h3{
+        text-align: center;
+      }
+      .container table{
+       border: 0;
+      }
+      .row h6{
+        font-size: 1.5rem;
+      }
+      .col-8 h2{
+        text-align: center;
+      }
+    </style>
+
+</head>
+<body>
+
+
+  
+  <div id="tam">
+
+
+
+    <div id="header">
+        <div id="opening_table" class="d-none border-bottom border-4 mb-5">
+          
+  
+
+            <div class="container my-4">
+                <div class="row">
+                    <div class="col-10">
+        
+                          <a class="logo" href="/"><img src="https://www.bankrespublika.az/site/views/site/images/logo.svg"></a>
+                  
+                    </div>
+                    <div class="col-2 d-flex flex-row-reverse">
+                      <a href="" style="color:black ;"><i id="close" class="fa-solid fa-x"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!--container end-->
+
+            <div class="searchBlock d-flex align-items-center flex-column mb-5">
+                <h2>Məhsullar, Kompaniyalar və Xəbərlər üzrə axtarış</h2>
+                <form method="GET" action="#">
+                    <div class="inputGroup dark big">
+                      <input type="text" style="width:200px;" class="form-control rounded-5" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    <!--inputGroup end-->
+                </form>
+            </div>
+            
+            <div class="container searchFooter">
+                <h3 class="text-center mb-5 text-primary">Ən çox axtarılan</h3>
+                <div class="row" style="list-style-type: none;">
+
+                                              <div class="col-md-3 border-end">
+                    <ul style="list-style-type: none;" class="simpleList">
+                                                        <li>Onlayn Kredit Ödənişi</a></li>
+                                                          <li>Mobil Şöbə</a></li>
+                                                          <li>İnternet Ofis</a></li>
+                                                          <li>Onlayn kart sifarişi</a></li>
+                                                          <li>Kredit Kartlar</a></li>
+                                                          <li>Nağd Pul Krediti</a></li>
+                            </ul>
+                </div>                        <div class="col-md-3 border-end">
+                    <ul style="list-style-type: none;" class="simpleList">
+                                                        <li>Mikro/Aqro (Biznes) krediti</a></li>
+                                                          <li>Pul köçürmələri</a></li>
+                                                          <li>İpoteka krediti</a></li>
+                                                          <li>Avtomobil krediti</a></li>
+                                                          <li>Tariflər / Limitlər / MCC</a></li>
+                                                          <li>Filiallar və Şöbələr</a></li>
+                            </ul>
+                </div>                        <div class="col-md-3 border-end">
+                    <ul style="list-style-type: none;" class="simpleList">
+                                                        <li>Bankomatlar (ATM)</a></li>
+                                                          <li>Insan Resursları</a></li>
+                                                          <li>Hesabatlar</a></li>
+                                                          <li>Əmanətlər</a></li>
+                                                          <li>Lombard krediti</a></li>
+                                                          <li>Biznes kartlar</a></li>
+                            </ul>
+                </div>                        <div class="col-md-3 border-end">
+                    <ul style="list-style-type: none;" class="simpleList">
+                                                        <li>Bank sefləri</a></li>
+                                                          <li>Əməkhaqqı kartları</a></li>
+                                                          <li>Bank Rekvizitləri</a></li>
+                                                          <li>Akkreditiv</a></li>
+                                                          <li>Qarantiyalar</a></li>
+                                                          <li>Ekvayrinq</a></li>
+                        </ul>
+                </div> 
+        
+
+        </div>
+        <!--content end-->
+    </div>
+        </div>
+
+        
+        <div class="container">
+            <div class="d-flex mb-3 m-2">
+                <div class="me-auto p-2">
+                    <a class="logo" href="/"><img src="https://www.bankrespublika.az/site/views/site/images/logo1.svg"></a>
+                </div>
+
+                <div class="p-2"><a class="nav-link active" aria-current="page" href="#">Valyuta mezenneleri</a></div>
+                <div class="p-2"> 
+                  <a class="dropdown-toggle nav-link active " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Haqqimizda 
+                  </a>
+                    <div class="dropdown">
+                      
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#">Umumi melumat</a></li>
+                          <li><a class="dropdown-item" href="#">Bank rekvizitleri</a></li>
+                          <li><a class="dropdown-item" href="#">Hesabatlar</a></li>
+                          <li><a class="dropdown-item" href="#">Rehberlik</a></li>
+                          <li><a class="dropdown-item" href="#">Teskilati stuktur</a></li>
+                          <li><a class="dropdown-item" href="#">Risklerin idare edilmesi</a></li>
+                          <li><a class="dropdown-item" href="#">Daxili komiteler</a></li>
+                          <li><a class="dropdown-item" href="#">Mesuliyyetli kreditlesme siyaseti</a></li>
+                          <li><a class="dropdown-item" href="#">Insan resuslari</a></li>
+                          <li><a class="dropdown-item" href="/xeberler/">Xeberler</a></li>
+                        </ul>
+                      </div>
+                </div>
+
+
+
+                <div class="p-2"> <a class="nav-link" href="#">Filal ve bankomatlar</a></div>
+                <div class="p-2"> <a class="nav-link" href="#">Bizimle elaqe</a></div>
+                <div id="search" class="p-2 mx-2"> <a class="nav-link" href="#"><i class="fa-solid fa-magnifying-glass"></i></a></div>
+                <div class="p-2"> 
+                  <a class="dropdown-toggle nav-link active " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <i class="fa-solid fa-globe"></i></i></i> AZ
+                  </a>
+                  <div class="dropdown">
+                  
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">AZ</a></li>
+                      <li><a class="dropdown-item" href="#">EN</a></li>
+                      <li><a class="dropdown-item" href="#">RU</a></li>
+
+                    </ul>
+                  </div>
+                </div>   
+            </div>
+        </div>
+
+
+        <div class="container">
+        
+            <div class="d-flex ">
+                <div id="ferdi" class="py-2 pe-3 border-bottom border-primary"><strong><a style="text-decoration: none; color:black" href="#"> Ferdi</a></strong></div>
+                <div id="biznes" class="p-2 border-0 border-primary"><strong><a style="text-decoration: none; color:black" href="#"> Biznes</a></strong></div>
+                <div class="ms-auto p-2">
+                    <a class="nav-link" href="#">
+                        <img height="20px" width="20px" src="https://www.bankrespublika.az/site/views/site/images/whatsapp.png">
+                        <span>WhatsApp Chat-Bot</span>
+                    </a>
+                </div>
+                <div class="p-2 mx-2">
+                    <a class="nav-link" href="#">
+                        <img src="https://www.bankrespublika.az/site/views/site/images/io.png">
+                        <span>İnternet Ofis</span>
+                    </a>
+                </div>
+                <div class="p-2">
+                    <a class="nav-link" href="#" target="_blank">
+                        <img src="https://www.bankrespublika.az/site/views/site/images/is.png">
+                        <span>İnternet Şöbə</span>
+                    </a>
+                </div>
+                
+            </div>
+            <hr class="p-0 m-0">
+
+
+
+        
+
+        </div>
+        
+
+        <div class="container">
+            <div id="individual" class="d-flex mb-3 d-block">
+                <div class="py-2 pe-3">
+                  <a class="dropdown-toggle nav-link active " href="/cards/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                       Kartlar
+                  </a>
+                    <div class="dropdown">
+                      
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="/cards/">Kartlar</a></li>
+                          <li><a class="dropdown-item" href="#">Neo Qalaktika</a></li>
+                          <li><a class="dropdown-item" href="#">Kartlarin müqayisəsi</a></li>
+                          <li><a class="dropdown-item" href="/cards/sifarish/">Onlayn kart sifarişi</a></li>
+                          <li><a class="dropdown-item" href="#">Əlavə xidmətlər</a></li>
+                          <li><a class="dropdown-item" href="/onlayn/uzadilma/">Kartlarin onlayn uzadilmasi</a></li>
+                          <li><a class="dropdown-item" href="#">Tarifler/Limitler/MCC</a></li>
+                          <li><a class="dropdown-item" href="#">Tehlukesizlik qaydalari</a></li>
+
+                        </ul>
+                      </div>
+                </div>
+
+                <div class="p-2 pe-3">
+                  <a class="dropdown-toggle nav-link active " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                       Kreditler
+                  </a>
+                    <div class="dropdown">
+                      
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#">Nagd pul krediti</a></li>
+                          <li><a class="dropdown-item" href="#">Mikro/Aqro Biznes krediti</a></li>
+                          <li><a class="dropdown-item" href="#">Fermer krediti</a></li>
+                          <li><a class="dropdown-item" href="#">Lombard krediti</a></li>
+                          <li><a class="dropdown-item" href="#">Ipoteka</a></li>
+                          <li><a class="dropdown-item" href="#">Dasinmaz emlak krediti</a></li>
+                          <li><a class="dropdown-item" href="#">Valyuta esasinda kredit</a></li>
+                          <li><a class="dropdown-item" href="#">Emanet krediti</a></li>
+                          <li><a class="dropdown-item" href="#">Avtomaobil krediti</a></li>
+
+                        </ul>
+                      </div>
+                </div>
+
+                <div class="p-2 pe-3"><a href="#" class="nav-link">Pul kocurmeler</a></div>
+
+                <div class="p-2 pe-3">
+                  <a class="dropdown-toggle nav-link active " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                       Emanetler
+                  </a>
+                    <div class="dropdown">
+                      
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#">Muddetli emanet </a></li>
+                          <li><a class="dropdown-item" href="#">Faydali yigim</a></li>
+
+
+                        </ul>
+                      </div>
+                </div>
+
+                <div class="p-2 pe-3">
+                  <a class="dropdown-toggle nav-link active " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                       Onlayn xidmetler
+                  </a>
+                    <div class="dropdown">
+                      
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="/onlayn/uzadilma/">Kartin onlayn uzadilmasi</a></li>
+                          <li><a class="dropdown-item" href="/cards/sifarish/">Onlayn kart sifarisi</a></li>
+                          <li><a class="dropdown-item" href="#">Onlayn kredit sifarisi</a></li>
+                          <li><a class="dropdown-item" href="#">Kreditin onlayn odenmesi</a></li>
+                          <li><a class="dropdown-item" href="#">Mobil sobe</a></li>
+                          <li><a class="dropdown-item" href="#">Internet sobesi</a></li>
+                          <li><a class="dropdown-item" href="#">FIFD kalkulyator</a></li>
+                          <li><a class="dropdown-item" href="#">Onlayn muraciet</a></li>
+                          
+
+                        </ul>
+                      </div>
+                </div>
+
+                <div class="p-2 pe-3">
+                  <a class="dropdown-toggle nav-link active " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                       Diger xidmetler
+                  </a>
+                    <div class="dropdown">
+                      
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#">Hesablama-kassa xidemti </a></li>
+                          <li><a class="dropdown-item" href="#">Bank seyfleri</a></li>
+                          <li><a class="dropdown-item" href="#">KBXM</a></li>
+
+
+                        </ul>
+                      </div>
+                </div>
+
+                <div class="p-2 pe-3"><a href="/kampaniyalar/" class="nav-link">Kampaniyalar</a></div>
+
+              </div>
+
+
+              <div id="business" class="d-flex mb-3 d-none">
+                <div class="py-2 pe-3">
+                  <a class="dropdown-toggle nav-link active " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Biznes kreditləri
+                  </a>
+                    <div class="dropdown">
+                      
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#">Sahibkarlığın inkişafına dövlətin zəmanətli krediti və subsidiya dəstəyi</a></li>
+                          <li><a class="dropdown-item" href="#">Biznes kreditləri</a></li>
+                          <li><a class="dropdown-item" href="#">Kredit xətti</a></li>
+                          <li><a class="dropdown-item" href="#">Onlayn kart sifarişi</a></li>
+                          <li><a class="dropdown-item" href="#">Aqrar Kredit və İnkişaf Agentliyi (AKİA)</a></li>
+                          <li><a class="dropdown-item" href="#">Sahibkarlığın İnkişaf Fondu (SİF)</a></li>
+                          <li><a class="dropdown-item" href="#">İpoteka və Kredit Zəmanət fondu vasitəsilə güzəştli (subsidiyalı) kreditlər</a></li>
+
+                        </ul>
+                      </div>
+                </div>
+
+                <div class="p-2 pe-3">
+                  <a class="dropdown-toggle nav-link active " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Qeyri-kredit məhsulları
+                  </a>
+                    <div class="dropdown">
+                      
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#">Kassa-hesablaşma əməliyyatları</a></li>
+                          <li><a class="dropdown-item" href="#">Əməkhaqqı layihələri</a></li>
+                          <li><a class="dropdown-item" href="#">Əmanətlər</a></li>
+                          <li><a class="dropdown-item" href="#">Biznes kartları</a></li>
+                          <li><a class="dropdown-item" href="#">İnkassasiya xidməti</a></li>
+                          <li><a class="dropdown-item" href="#">Bank seyfləri</a></li>
+                          <li><a class="dropdown-item" href="#">Ekvayrinq</a></li>
+                          <li><a class="dropdown-item" href="#">Faktorinq</a></li>
+
+                        </ul>
+                      </div>
+                </div>
+
+
+                <div class="p-2 pe-3">
+                  <a class="dropdown-toggle nav-link active " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Rəqəmsal bankçılıq
+                  </a>
+                    <div class="dropdown">
+                      
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#">Mobil Ofis</a></li>
+                          <li><a class="dropdown-item" href="#">Internet Ofis</a></li>
+
+
+                        </ul>
+                      </div>
+                </div>
+
+                <div class="p-2 pe-3">
+                  <a class="dropdown-toggle nav-link active " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Sənədli əməliyyatlar
+                  </a>
+                    <div class="dropdown">
+                      
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#">Qarantiyalar</a></li>
+                          <li><a class="dropdown-item" href="#">Akkreditiv</a></li>
+                          <li><a class="dropdown-item" href="#">İnvoys əsasında maliyyələşmə</a></li>
+                          
+                          
+
+                        </ul>
+                      </div>
+                </div>
+
+
+                <div class="p-2 pe-3"><a href="/kampaniyalar/" class="nav-link">Kampaniyalar</a></div>
+
+              </div>
+        </div>
+
+      
+        
+        
+    </div>
+
+
+
+
+    {% block content %}
+    
+
+
+
+
+    
+    
+    {% endblock %}
+
+
+
+
+
+    <div id="footer" >
+      <div class="article"> 
+        <div class="container">
+          <div class="row justify-content-md-center" style="text-align: center;">
+            <div class="col-md-2">
+            <img src="https://www.bankrespublika.az/uploads/about/onlineServices/4.png">
+            <span>Ofis24</span>
+            </div>
+            <div class="col-md-2">
+            <img src="	https://www.bankrespublika.az/uploads/about/onlineServices/2.png">
+            <span>Internet Ofis</span>
+            </div>
+            <div class="col-md-2">
+            <img src="	https://www.bankrespublika.az/uploads/about/onlineServices/5.png">
+            <span>Mobil Ofis</span>
+            </div>
+            <div class="col-md-2">
+            <img src="	https://www.bankrespublika.az/uploads/about/onlineServices/3.png">
+            <span>İnternet Şöbə</span>
+            </div>
+            <div class="col-md-2">
+            <img src="	https://www.bankrespublika.az/uploads/icons/logoms.png">
+            <span>Mobil Şöbə</span>
+            </div>
+          </div>
+          </div>
+          <hr>
+        
+        
+        
+        
+        
+        
+        
+        
+      <footer class="mainfooter" role="contentinfo">  
+        <div class="footer-middle">  
+        <div class="container">  
+          <div class="row">  
+            <div class="col-2 ">  
+              <div class="footer-pad">  
+                <h4>Fərdi müştərilər</h4>  
+                <ul class="list-unstyled text-decoration-none">  
+                  <li> <a href="#"> Kartlar</a> </li>  
+                  <li> <a href="#">Kreditlər</a></li>  
+                  <li> <a href="#"> Əmanətlər</a></li>  
+                  <li> <a href="#">Pul köçürmələri</a></li>  
+                  <li> <a href="#">Bank seyfləri</a></li>  
+                  <li> <a href="#">Mobil Şöbə</a></li>
+                  <li> <a href="#">İnternet Şöbə
+                  </a></li>
+                  <li> <a href="#">Kampaniyalar</a></li>  
+                </ul>  
+              </div>  
+            </div>  
+            <div class="col-2 ">  
+              <div class="footer-pad">  
+                <h4> Onlayn xidmətlər</h4>  
+                <ul class="list-unstyled">  
+                  <li><a href="#"> Kart sifarişi </a> </li>  
+                  <li><a href="#">Kredit sifarişi</a> </li>  
+                  <li><a href="#">Kreditin onlayn ödənişi</a></li>  
+                  <li><a href="#">İnternet Şöbə</a></li>  
+                  <li><a href="#">Mobil Şöbə</a></li>  
+                  <li><a href="#">FİFD-Kalkulyatoru</a></li>  
+                </ul>  
+              </div>  
+            </div>  
+            <div class="col-5 ">  
+              <div class="footer-pad">  
+                <h4> Bank Haqqında </h4>  
+                <ul class="list-unstyled">  
+                  <li> <a href="#"> Bank haqqında </a> </li>  
+                  <li> <a href="#"> Bank rekvizitləri </a> </li>  
+                  <li> <a href="#">Filiallar və Şöbələr</a> </li>  
+                  <li> <a href="#">Valyuta məzənnələri </a> </li>  
+                  <li> <a href="#"> İnsan resursları </a> </li>  
+                  <li> <a href="#"> Hesabatlar </a> </li>  
+                </ul>  
+              </div>  
+            </div>  
+            <div class="col-3">  
+                  <p> 
+                      Filial və Bankomatlar</p>
+                      <p>Bizimlə Əlaqə </p>  
+                      <img src="https://www.bankrespublika.az/site/views/site/images/callcenter144.svg" alt="" srcset=""><br><br>
+                  <ul class="social-network social-circle">  
+                   <li> <a href="#" class="icoFacebook" title="Facebook"> <i class="fab fa-facebook-square"></i> </i> </a> </li>  
+                   <li> <a href="#" class="icoLinkedin" title="Linkedin"> <i class="fab fa-linkedin"></i> </i> </a> </li>  
+          <li> <a href="#"><i class="fab fa-instagram"></i> </a> </li>  
+                  </ul>               
+            </div>  
+          </div> 
+          </div>
+      
+       
+      <hr class="xett">
+      <div class="container">
+          <div class="row">  
+          <div class="col-md-6 copy">  
+          <p class="text-center"> © 1992 - 2022 Bank Respublika </p>  
+          </div>  
+        <div class="col-md-6" id="logos">  
+        <img height="30px" src="https://www.bankrespublika.az/site/views/site/images/infobank.png"> 
+        <img height="30px" src="https://www.bankrespublika.az/site/views/site/images/egov.png">
+        <img height="30px" src="https://www.bankrespublika.az/site/views/site/images/maliyyesavadliligi.png">
+          </div>  
+          </div>  
+        </div> 
+        </div>  
+        </div>
+        </div>  
+      </footer>
+
+
+
+
+    </div>
+  
+          
+
+  <script>
+    $('#carousel-3').carousel({
+        interval: 3000,
+        wrap: true,
+        keyboard: true
+    });
+  </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
+    <script src="{{ url_for('static', filename='/asset/js/scripts.js') }}"></script>
+  {% block js %}
+  {% endblock %}
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

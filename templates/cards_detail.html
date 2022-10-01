@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<div class="bg-light">
+    
+
+    <div class="card-content"> 
+            <div class="card text-bg-dark">
+                <img src="https://media-exp1.licdn.com/dms/image/C4D16AQF6zKmU3os9xA/profile-displaybackgroundimage-shrink_350_1400/0/1649095024517?e=1667433600&v=beta&t=bE3N4oVEaEe7l6OCZ_Et6LG4Wg67MtPpPHsTGvDBegs" height="350px" class="card-img" alt="...">
+                <div class="card-img-overlay">
+                    <div class="row g-0 m-3 ">
+                    <div class="col-md-3 pt-5">
+                        <img src="{{data.image_url}}" class="img-fluid rounded-start {{data.ms_4}}" alt="...">
+                        <a href="/cards/sifarish/" style="background-color: rgb(39, 88, 251);" class="btn btn-primary rounded-pill d-block my-3">Siparis et</a>
+                        
+                    </div>
+                    <div class="col-md-9 ps-4 ">
+                        <div class="card-body me-5">
+                            <h3 class="card-title">{{data.title}}</h3>
+                            {% if data.desc %}
+                            <p>{{data.desc}}</p>
+                            {% endif %}
+                            
+                            <h5 class="mt-4">{{data.xususiyyetler|safe}}</h5>
+                        </div>
+                    </div>
+                    </div>
+         
+                </div>
+            </div>
+
+
+
+
+
+
+
+    </div>
+    
+    
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8">{{data.text|safe}}</div>
+            <div class="col-2"></div>
+        </div>
+        
+    </div>
+    
+
+
+</div>
+
+ 
+ 
+ 
+{% endblock %}
+
+
+
+

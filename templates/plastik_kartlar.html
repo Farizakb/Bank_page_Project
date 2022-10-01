@@ -1,0 +1,571 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<div class="bg-light">
+  <div class="container">
+    <div class="col my-5">
+        <h1>Plastik kartlar</h1>
+    </div>
+
+
+    <div id="isotope">
+      
+        <div class="btn-group btn-group-lg mb-4 rounded-5 bg-white button-group" data-filter-group="nov" role="group" aria-label="Large button group">
+            <button type="button" data-filter="" class="btn btn-outline-dark border-0">Hamsi</button>
+            <button type="button" data-filter=".kredit" class="btn btn-outline-dark border-0 border-start border-end">Kredit</button>
+            <button type="button" data-filter=".debit" class="btn btn-outline-dark border-0 border-start border-end">Debit</button>
+            <button type="button" data-filter=".taksit" class="btn btn-outline-dark border-0 border-start border-end">Taksit</button>
+            <button type="button" data-filter=".kocurme" class="btn btn-outline-dark  border-0">Kocurmeler ucun</button>
+        </div>
+
+
+        <div class="btn-group btn-group-lg mx-3 mb-4 rounded-5 bg-white button-group" data-filter-group="mas/vis" role="group" aria-label="Large button group">
+            <button type="button" data-filter="" class="btn btn-outline-dark border-0">Hamsi</button>
+            <button type="button" data-filter=".mastercard" class="btn btn-outline-dark border-0 border-start border-end"><img width="20px" height="20px" src="https://www.bankrespublika.az/site/views/site/images/icons/mastercard.svg"><span>Mastercard</span></li></button>
+            <button type="button" data-filter=".visa" class="btn btn-outline-dark border-0 border-start"><img width="30px" height="30px" src="https://www.bankrespublika.az/site/views/site/images/icons/visa.svg"><span>Visa</span></button>
+        </div>
+
+
+        <div class="btn-group btn-group-lg mb-4 rounded-5 bg-white button-group" data-filter-group="level" role="group" aria-label="Large button group">
+            <button type="button" data-filter="" class="btn btn-outline-dark border-0">Hamsi</button>
+            <button type="button" data-filter=".classic" class="btn btn-outline-dark border-0 border-start">Classic</button>
+            <button type="button" data-filter=".gold" class="btn btn-outline-dark border-0 border-start border-end">Gold</button>
+            <button type="button" data-filter=".premium" class="btn btn-outline-dark border-0">Premium</button>
+        </div>
+        <br>
+
+        <div class="btn-group btn-group-lg me-5 rounded-5 bg-white button-group" data-filter-group="valyuta" role="group" aria-label="Large button group">
+            <button type="button" data-filter="" class="btn btn-outline-dark border-0">Hamsi</button>
+            <button type="button" data-filter=".manat" class="btn btn-outline-dark border-0 border-start">Manat</button>
+            <button type="button" data-filter=".dollar" class="btn btn-outline-dark border-0 border-start border-end">Dollar</button>
+            <button type="button" data-filter=".euro" class="btn btn-outline-dark border-0">Euro</button>
+        </div>
+
+        <div class="btn-group btn-group-lg mx-5 rounded-5 bg-white" role="group" aria-label="Large button group">
+            <button type="button" class="btn btn-outline-dark border-0">Muqayise</button>
+            
+        </div>
+
+
+    </div>
+
+    <div class="cards" id="product_list">
+        
+
+      {% for data in datas %}
+    
+
+      
+      <div class="card mt-5 p-3  rounded-4 {{data.classes}}" style="max-width: 1500px;">
+        <div class="row g-0">
+          <div class="col-md-3 pt-5">
+            <img src="{{data.image_url}}" class="img-fluid rounded-start ms-5 pe-2  {{data.ms_4}}" alt="...">
+                <a href="/cards/sifarish/" style="background-color: rgb(39, 88, 251);" class="btn btn-primary rounded-pill d-block my-3">Siparis et</a>
+                <a href="/cards/{{data.title.replace(' ', '-')}}/" class="btn btn-light rounded-pill d-block">Etrafli</a>
+              </div>
+              <div class="col-md-9 ps-3">
+                <div class="card-body me-5">
+                  <h3 class="card-title pb-2 ">{{data.title}}</h3>
+                    {% if data.desc %}
+                    <p>{{data.desc}}</p>
+                    {% endif %}
+                  <p class="card-text ">{{data.xususiyyetler|safe}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          
+        {% endfor%}
+
+          <!-- <div class="card mt-5 p-5  rounded-4 debit mastercard premium dollar euro" style="max-width: 1500px;">
+            <div class="row g-0">
+              <div class="col-md-3">
+                <img src="	https://www.bankrespublika.az/uploads/NEO/Cards.png" class="img-fluid rounded-start" alt="...">
+                <a href="#" style="background-color: rgb(39, 88, 251);" class="btn btn-primary rounded-pill d-block my-3">Siparis et</a>
+                <a href="#" class="btn btn-light rounded-pill d-block">Etrafli</a>
+              </div>
+              <div class="col-md-9">
+                <div class="card-body me-5">
+                    <h3 class="card-title">NeoKart Premium </h3>
+                    <p class="card-text">NeoKart vasitəsilə alış-veriş etdiyin yerdən asılı olamayaraq (restoran, yanacaqdoldurma məntəqəsi, mağaza və s.) hər zaman və hər yerdə Neobonuslar qazanacaqsan. Toplanan Neobonusları isə, keşbek, danışıq dəqiqələri, mobil internet və ya səyahət millərinə dəyişdirə biləcəksən.</p>
+                    <div class="row mt-5">
+                        <div class="col-md-3">
+                            <h5 style="color: rgb(39, 88, 251);">Buraxılma haqqı</h5>
+                            <p>80 AZN</p>
+                        </div>
+                        <div class="col-md-3">
+                            <h5 style="color: rgb(39, 88, 251);">İstifadə müddəti </h5>
+                            <p>3 il</p>
+                        </div>
+                        <div class="col-md-3">
+                            <h5 style="color: rgb(39, 88, 251);">Qalıq üzrə faiz AZN</h5>
+                            <p>AZN 5% / USD 0.2%</p>
+                        </div>
+                        <div class="col-md-3">
+                            <h5 style="color: rgb(39, 88, 251);">Valyuta</h5>
+                            <p>AZN / USD / EUR</p>
+                        </div>
+                        <div class="col-md-3">
+                            <h5 style="color: rgb(39, 88, 251);">Kredit xətti </h5>
+                            <p>45 gün güzəşt müddəti</p>
+                        </div>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+
+
+
+          <!-- <div class="card mt-5 p-5 rounded-4 debit visa premium" style="max-width: 1500px;">
+            <div class="row g-0">
+              <div class="col-md-3">
+                <img src="	https://www.bankrespublika.az/uploads/Mover%20Visa%20Premium.png" class="img-fluid rounded-start ms-4" alt="...">
+                <a href="#" style="background-color: rgb(39, 88, 251);" class="btn btn-primary rounded-pill d-block my-3">Siparis et</a>
+                <a href="#" class="btn btn-light rounded-pill d-block">Etrafli</a>
+              </div>
+              <div class="col-md-9">
+                <div class="card-body me-5">
+                    <h3 class="card-title">Mover Visa Platinium  </h3>
+                    <p class="card-text">Bank Respublika, e-ticarətdə liderlərdən biri olan Mover ilə birgə yeni sərfəli "Mover Visa Platinium"  kobrend kartını təklif edir.
+                    </p>
+                    <div class="row mt-5">
+                        <div class="col-md-3">
+                            <h5 style="color: rgb(39, 88, 251);">Qiymet</h5>
+                            <p>1 illik 25 AZN</p>
+                        </div>
+                        <div class="col-md-3">
+                            <h5 style="color: rgb(39, 88, 251);">Qiymet</h5>
+                            <p>2 illik 40 AZN</p>
+                        </div>
+                        <div class="col-md-3">
+                            <h5 style="color: rgb(39, 88, 251);">Qiymet</h5>
+                            <p>3 illik 50 AZN</p>
+                        </div>
+                        
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="card mt-5 p-5  rounded-4 debit visa classic" style="max-width: 1500px;">
+            <div class="row g-0">
+              <div class="col-md-3">
+                <img src="	https://www.bankrespublika.az/uploads/Mover%20Visa%20Classic.png" class="img-fluid rounded-start ms-4" alt="...">
+                <a href="#" style="background-color: rgb(39, 88, 251);" class="btn btn-primary rounded-pill d-block my-3">Siparis et</a>
+                <a href="#" class="btn btn-light rounded-pill d-block">Etrafli</a>
+              </div>
+              <div class="col-md-9">
+                <div class="card-body me-5">
+                    <h3 class="card-title">Mover Visa Classic   </h3>
+                    <p class="card-text">Bank Respublika, e-ticarətdə liderlərdən biri olan Mover ilə birgə yeni sərfəli "Mover Visa Platinium"  kobrend kartını təklif edir.
+                    </p>
+                    <div class="row mt-5">
+                        <div class="col-md-3">
+                            <h5 style="color: rgb(39, 88, 251);">Qiymet</h5>
+                            <p>1 illik 10 AZN</p>
+                        </div>
+                        <div class="col-md-3">
+                            <h5 style="color: rgb(39, 88, 251);">Qiymet</h5>
+                            <p>2 illik 15 AZN</p>
+                        </div>
+                        <div class="col-md-3">
+                            <h5 style="color: rgb(39, 88, 251);">Qiymet</h5>
+                            <p>3 illik 20 AZN</p>
+                        </div>
+                        
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="card mt-5 p-5  rounded-4" style="max-width: 1500px;">
+            <div class="row g-0">
+              <div class="col-md-3">
+                <img src="https://www.bankrespublika.az/uploads/DG_new_screen/card%20thumbs%20for%20website.png" class="img-fluid rounded-start ms-4" alt="...">
+                
+                <a href="#" class="btn btn-light rounded-pill d-block my-3">Etrafli</a>
+              </div>
+              <div class="col-md-9">
+                <div class="card-body me-5">
+                    <h3 class="card-title">Digital Card (Rəqəmsal Kart) </h3>
+                    <p class="card-text">Visa Digital Card məhsulu banka gəlmədən birbaşa Mobil Şöbə əlavəsində aktivləşdirilə bilər. Kartdan həmçinin bankın müştərisi olmayan istifadəçilərdə faydalana bilərlər.</p>
+                    <div class="row mt-5">
+                        <div class="col-md-3">
+                            <h5 style="color: rgb(39, 88, 251);">Buraxilma haqqi</h5>
+                            <p>Pulsuz</p>
+                        </div>
+                        <div class="col-md-3">
+                            <h5 style="color: rgb(39, 88, 251);">Istifade muddeti</h5>
+                            <p>1 il</p>
+                        </div>
+                        <div class="col-md-3">
+                            <h5 style="color: rgb(39, 88, 251);">Ilkin medaxil</h5>
+                            <p>0 AZN</p>
+                        </div>
+                        <div class="col-md-3">
+                            <h5 style="color: rgb(39, 88, 251);"> Valyuta</h5>
+                            <p>AZN</p>
+                        </div>
+                        
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+          <div class="card mt-5 p-5  rounded-4 kredit debit mastercard manat dollar euro" style="max-width: 1500px;">
+            <div class="row g-0">
+              <div class="col-md-3">
+                <img src="https://www.bankrespublika.az/uploads/debet.png" class="img-fluid rounded-start ms-4" alt="...">
+                <a href="#" style="background-color: rgb(39, 88, 251);" class="btn btn-primary rounded-pill d-block my-3">Siparis et</a>
+                <a href="#" class="btn btn-light rounded-pill d-block">Etrafli</a>
+              </div>
+              <div class="col-md-9">
+                <div class="card-body ms-3 me-5">
+                    <h3 class="card-title">MasterCard Debit </h3>
+                    <div class="row mt-5">
+                        <div class="col-md-3">
+                            <h5 style="color: rgb(39, 88, 251);">Buraxılma haqqı</h5>
+                            <p>9 / 15/ 20	/ 30  AZN - (ilkin mədaxil olmadan)</p>
+                        </div>
+                        
+                        <div class="col-md-3">
+                            <h5 style="color: rgb(39, 88, 251);">Ilkin medaxil</h5>
+                            <p>1 / 2 / 3 il - 500AZN / 250USD(EUR)</p>
+                        </div>
+                        <div class="col-md-3">
+                            <h5 style="color: rgb(39, 88, 251);">Ilkin medaxil</h5>
+                            <p>5 il - 1000AZN / 500USD(EUR)</p>
+                        </div>
+                        <div class="col-md-3">
+                            <h5 style="color: rgb(39, 88, 251);">Kredit xətti </h5>
+                            <p>2000 AZN / EUR / USD</p>
+                        </div>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="card mt-5 p-5  rounded-4 kredit debit mastercard premium manat dollar euro" style="max-width: 1500px;">
+            <div class="row g-0">
+              <div class="col-md-3">
+                <img src="https://www.bankrespublika.az/uploads/100il.png" class="img-fluid rounded-start ms-4" alt="...">
+                <a href="#" style="background-color: rgb(39, 88, 251);" class="btn btn-primary rounded-pill d-block my-3">Siparis et</a>
+                <a href="#" class="btn btn-light rounded-pill d-block">Etrafli</a>
+              </div>
+              <div class="col-md-9">
+                <div class="card-body me-5">
+                    <h3 class="card-title">MasterCard Platinum - Cümhuriyyət 100 il.  </h3>
+                    <div class="row mt-5">
+                        <div class="col-md-3">
+                            <h5 style="color: rgb(39, 88, 251);">Buraxılma haqqı</h5>
+                            <p>20 / 30 / 40	/ 60  AZN - (ilkin mədaxil olmadan)</p>
+                        </div>
+                        
+                        <div class="col-md-3">
+                            <h5 style="color: rgb(39, 88, 251);">Ilkin medaxil</h5>
+                            <p>1 / 2 / 3 il - 2000AZN / 1000USD(EUR)</p>
+                        </div>
+                        <div class="col-md-3">
+                            <h5 style="color: rgb(39, 88, 251);">Ilkin medaxil</h5>
+                            <p>5 il - 3000AZN / 1500USD(EUR)</p>
+                        </div>
+                        <div class="col-md-3">
+                            <h5 style="color: rgb(39, 88, 251);">Kredit xətti </h5>
+                            <p>50000 AZN / USD</p>
+                        </div>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="card mt-5 p-5  rounded-4 debit visa classic manat dollar" style="max-width: 1500px;">
+            <div class="row g-0">
+              <div class="col-md-3">
+                <img src="https://www.bankrespublika.az/uploads/ilk%20kart%20boy.png" class="img-fluid rounded-start ms-4" alt="...">
+                
+                <a href="#" class="btn btn-light rounded-pill d-block my-3">Etrafli</a>
+              </div>
+              <div class="col-md-9">
+                <div class="card-body me-5">
+                    <h3 class="card-title">İlk Kart (Boy)  </h3>
+                    <div class="row mt-5">
+                        <div class="col-md-3">
+                            <h5 style="color: rgb(39, 88, 251);">Yas heddi </h5>
+                            <p>7-18 yas</p>
+                        </div>
+                        <div class="col-md-3">
+                            <h5 style="color: rgb(39, 88, 251);">Buraxilma formasi</h5>
+                            <p>Elave kart</p>
+                        </div>
+                        <div class="col-md-3">
+                            <h5 style="color: rgb(39, 88, 251);">Teqdim olunan senedler</h5>
+                            <p>Sexsiyyet vesiqesi / Dogum sehadetnamesi </p>
+                        </div>
+                        <div class="col-md-3">
+                            <h5 style="color: rgb(39, 88, 251);"> Istifade muddeti</h5>
+                            <p>2 il</p>
+                        </div>
+                        
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="card mt-5 p-5  rounded-4 debit visa classic manat dollar" style="max-width: 1500px;">
+            <div class="row g-0">
+              <div class="col-md-3">
+                <img src="	https://www.bankrespublika.az/uploads/ilk%20kart%20girl.png" class="img-fluid rounded-start ms-4" alt="...">
+                
+                <a href="#" class="btn btn-light rounded-pill d-block my-3">Etrafli</a>
+              </div>
+              <div class="col-md-9">
+                <div class="card-body me-5">
+                    <h3 class="card-title">İlk Kart (Girl)   </h3>
+                    <div class="row mt-5">
+                        <div class="col-md-3">
+                            <h5 style="color: rgb(39, 88, 251);">Yas heddi </h5>
+                            <p>7-18 yas</p>
+                        </div>
+                        <div class="col-md-3">
+                            <h5 style="color: rgb(39, 88, 251);">Buraxilma formasi</h5>
+                            <p>Elave kart</p>
+                        </div>
+                        <div class="col-md-3">
+                            <h5 style="color: rgb(39, 88, 251);">Teqdim olunan senedler</h5>
+                            <p>Sexsiyyet vesiqesi / Dogum sehadetnamesi </p>
+                        </div>
+                        <div class="col-md-3">
+                            <h5 style="color: rgb(39, 88, 251);"> Istifade muddeti</h5>
+                            <p>2 il</p>
+                        </div>
+                        
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="card mt-5 p-5  rounded-4 kredit debit visa gold manat dollar euro" style="max-width: 1500px;">
+            <div class="row g-0">
+              <div class="col-md-3">
+                <img src="https://www.bankrespublika.az/uploads/Visa%20Gold.png" class="img-fluid rounded-start ms-4" alt="...">
+                <a href="#" style="background-color: rgb(39, 88, 251);" class="btn btn-primary rounded-pill d-block my-3">Siparis et</a>
+                <a href="#" class="btn btn-light rounded-pill d-block">Etrafli</a>
+              </div>
+              <div class="col-md-9">
+                  <div class="card-body me-5">
+                      <h3 class="card-title">VISA Gold </h3>
+                      <div class="row mt-5">
+                        <div class="col-md-3">
+                            <h5 style="color: rgb(39, 88, 251);">Buraxilis haqqi </h5>
+                            <p>15 / 20 / 30 / 40 AZN -Ilkin medaxil olmadan</p>
+                        </div>
+                        <div class="col-md-3">
+                            <h5 style="color: rgb(39, 88, 251);">Ilkin medaxil</h5>
+                            <p>1 / 2 / 3 il - 1000AZN / 500USD(EUR)</p>
+                        </div>
+                        
+                        <div class="col-md-3">
+                            <h5 style="color: rgb(39, 88, 251);">Ilkin medaxil</h5>
+                            <p>5 il - 2000AZN / 1000USD(EUR)</p>
+                        </div>
+                        <div class="col-md-3">
+                            <h5 style="color: rgb(39, 88, 251);">Kredit xətti </h5>
+                            <p>20000 AZN / USD</p>
+                        </div>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          
+
+          <div class="card mt-5 p-5  rounded-4 kredit debit mastercard gold manat dollar euro" style="max-width: 1500px;">
+            <div class="row g-0">
+              <div class="col-md-3">
+                <img src="	https://www.bankrespublika.az/uploads/MC%20Gold.png" class="img-fluid rounded-start ms-4" alt="...">
+                <a href="#" style="background-color: rgb(39, 88, 251);" class="btn btn-primary rounded-pill d-block my-3">Siparis et</a>
+                <a href="#" class="btn btn-light rounded-pill d-block">Etrafli</a>
+              </div>
+              <div class="col-md-9">
+                  <div class="card-body me-5">
+                      <h3 class="card-title">MasterCard Gold </h3>
+                      <div class="row mt-5">
+                        <div class="col-md-3">
+                            <h5 style="color: rgb(39, 88, 251);">Buraxilis haqqi </h5>
+                            <p>15 / 20 / 30 / 40 AZN -Ilkin medaxil olmadan</p>
+                        </div>
+                        <div class="col-md-3">
+                            <h5 style="color: rgb(39, 88, 251);">Ilkin medaxil</h5>
+                            <p>1 / 2 / 3 il - 1000AZN / 500USD(EUR)</p>
+                        </div>
+                        
+                        <div class="col-md-3">
+                            <h5 style="color: rgb(39, 88, 251);">Ilkin medaxil</h5>
+                            <p>5 il - 2000AZN / 1000USD(EUR)</p>
+                        </div>
+                        <div class="col-md-3">
+                            <h5 style="color: rgb(39, 88, 251);">Kredit xətti </h5>
+                            <p>20000 AZN / USD</p>
+                        </div>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="card mt-5 p-5  rounded-4 kredit debit visa classic manat dollar" style="max-width: 1500px;">
+            <div class="row g-0">
+              <div class="col-md-3">
+                <img src="https://www.bankrespublika.az/uploads/Visa%20Classic.png  " class="img-fluid rounded-start ms-4" alt="...">
+                <a href="#" style="background-color: rgb(39, 88, 251);" class="btn btn-primary rounded-pill d-block my-3">Siparis et</a>
+                <a href="#" class="btn btn-light rounded-pill d-block">Etrafli</a>
+              </div>
+              <div class="col-md-9">
+                  <div class="card-body me-5">
+                      <h3 class="card-title">VISA Classic </h3>
+                      <div class="row mt-5">
+                        <div class="col-md-3">
+                            <h5 style="color: rgb(39, 88, 251);">Buraxilis haqqi </h5>
+                            <p>9 / 15 / 20 / 30 AZN -Ilkin medaxil olmadan</p>
+                        </div>
+                        <div class="col-md-3">
+                            <h5 style="color: rgb(39, 88, 251);">Ilkin medaxil</h5>
+                            <p>1 / 2 / 3 il - 500AZN / 250USD(EUR)</p>
+                        </div>
+                        
+                        <div class="col-md-3">
+                            <h5 style="color: rgb(39, 88, 251);">Ilkin medaxil</h5>
+                            <p>5 il - 1000AZN / 500USD(EUR)</p>
+                        </div>
+                        <div class="col-md-3">
+                            <h5 style="color: rgb(39, 88, 251);">Kredit xətti </h5>
+                            <p>3000 AZN / USD</p>
+                        </div>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="card mt-5 p-5  rounded-4 kredit debit mastercard classic manat dollar euro" style="max-width: 1500px;">
+            <div class="row g-0">
+              <div class="col-md-3">
+                <img src="	https://www.bankrespublika.az/uploads/MC%20Standart.png" class="img-fluid rounded-start ms-4" alt="...">
+                <a href="#" style="background-color: rgb(39, 88, 251);" class="btn btn-primary rounded-pill d-block my-3">Siparis et</a>
+                <a href="#" class="btn btn-light rounded-pill d-block">Etrafli</a>
+              </div>
+              <div class="col-md-9">
+                  <div class="card-body me-5">
+                      <h3 class="card-title">MasterCard Standard  </h3>
+                      <div class="row mt-5">
+                        <div class="col-md-3">
+                            <h5 style="color: rgb(39, 88, 251);">Buraxilis haqqi </h5>
+                            <p>9 / 15 / 20 / 30 AZN -Ilkin medaxil olmadan</p>
+                        </div>
+                        <div class="col-md-3">
+                            <h5 style="color: rgb(39, 88, 251);">Ilkin medaxil</h5>
+                            <p>1 / 2 / 3 il - 500AZN / 250USD(EUR)</p>
+                        </div>
+                        
+                        <div class="col-md-3">
+                            <h5 style="color: rgb(39, 88, 251);">Ilkin medaxil</h5>
+                            <p>5 il - 1000AZN / 500USD(EUR)</p>
+                        </div>
+                        <div class="col-md-3">
+                            <h5 style="color: rgb(39, 88, 251);">Kredit xətti </h5>
+                            <p>3000 AZN / USD</p>
+                        </div>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="card mt-5 p-5  rounded-4 kocurme visa" style="max-width: 1500px;">
+            <div class="row g-0">
+              <div class="col-md-3">
+                <img src="	https://www.bankrespublika.az/uploads/vektor.png" class="img-fluid rounded-start ms-4" alt="...">
+                <a href="#" style="background-color: rgb(39, 88, 251);" class="btn btn-primary rounded-pill d-block my-3">Siparis et</a>
+                <a href="#" class="btn btn-light rounded-pill d-block">Etrafli</a>
+              </div>
+              <div class="col-md-9">
+                  <div class="card-body me-5">
+                      <h3 class="card-title">Vector card</h3>
+                      <div class="row mt-5">
+                        <div class="col-md-3">
+                            <h5 style="color: rgb(39, 88, 251);">Ilkin medaxil</h5>
+                            <p>Pulsuz</p>
+                        </div>
+                        
+                        <div class="col-md-3">
+                            <h5 style="color: rgb(39, 88, 251);">Balansın artırılması</h5>
+                            <p>Cash-in / eManat / MillÖn / Card-to-Card</p>
+                        </div>
+                        <div class="col-md-3">
+                            <h5 style="color: rgb(39, 88, 251);">Nağlaşdırma (Bankın ATM-lərində) </h5>
+                            <p>0%</p>
+                        </div>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+
+
+
+
+
+          
+          
+
+        
+
+    </div>
+
+
+
+
+
+
+
+
+
+  </div>
+
+</div>
+
+
+
+{% endblock %}

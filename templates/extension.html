@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "base.html"%}
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% block css %}
+        <link rel="stylesheet" href="{{url_for('static', filename ='asset/css/extension.css')}}">
+        <title>Bank Respublika</title>
+        {% endblock %}
+
+    </head>
+
+    <body>
+        {% block content %}
+        <h2 class="ms-5 ps-4">Kartın onlayn uzadılması</h3>
+            <form action="" method="POST">
+                <div class="content">
+                    <div class="boxx">
+                        <div class="row">
+                            {{ form.csrf_token }}
+
+                            <div class="bloks">
+                                <div class="title">
+                                </div>
+                                {{form.reqemler.label}}
+                                <br>
+
+                                {{form.reqemler(class = "input form-control rounded-5 ")}}
+                                
+                                <div>
+
+                                    {{form.vesiqe.label}}
+                                    <br>
+                                    
+                                    {{form.vesiqe (class = "input form-control rounded-5")}}
+
+                                </div>
+                            </div>
+
+                            <div class="title">
+                            </div>
+
+                            <br>
+
+                            {{form.uzadilma_nov.label }}
+                            
+                                
+
+                                {{form.uzadilma_nov(class="input form-control rounded-5")}}
+
+                            </div>
+
+                            {{form.mobile.label}}
+                            <br>
+
+                           
+
+                                {{form.mobile (class = "input form-control rounded-5")}}
+                                
+                                <br>
+                            </div>
+
+                            <div class="title">
+                            </div>
+
+                            {{form.filal.label}}
+                            <br>
+                            
+                            {{form.filal (class = "input form-control rounded-5")}}
+
+                        </div>
+                        
+                        <div class="ms-5 ps-5" type="submit"><button class="gonder">Gonder</button></div>
+                    </div>
+                </div>
+            </form>
+        {% endblock %}
+    </body>
+</html>
